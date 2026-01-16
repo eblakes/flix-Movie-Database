@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flix Search</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/e82cf5917f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="app">
+      <div class="nav nav__bar">
+        <div class="logo">
+          <img
+            class="img__logo img__logo--app"
+            src="assets/movie-logo-photographic-film-movie-camera-cinema-movie-projector-video-cameras-cinema-camera-circle-png-clipart.jpg"
+            alt=""
+          />
+          <h1 class="img__logo--app">flix</h1>
+        </div>
+        <div class="links">
+          <a
+            href="index.html"
+            class="link white link__hover-effect link__hover-effect--black"
+            >Home</a
+          >
+          <a
+            href="#"
+            class="link white link__hover-effect link__hover-effect--black"
+            >Find your movie</a
+          >
+          <button class="nav__btn">Contact</button>
+        </div>
+      </div>
+      <div class="content-wrapper overlay">
+        <div class="search__nav">
+          <h1 class="landing__title blue">Browse our Movies</h1>
+          <div class="input__wrapper">
+            <input
+              class="input__btn"
+              type="text"
+              placeholder="Search by Title, Date, or Genre"
+              onchange="searchChange(event)"
+            />
+            <div class="search__wrapper">
+              <img src="" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="search">
+      <div class="filter__wrapper">
+        <h3 class="search__results">
+          Search results:<span class="searchName"></span>
+        </h3>
+        <div class="price-filter flex flex-col">
+          <select name="movieSort" id="movieSort" onchange="sortChange(event)">
+            <option disabled selected value="">Sort by year</option>
+            <option value="newest">Newest to Oldest</option>
+            <option value="oldest">Oldest to Newest</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="search">
+      <div class="movies">
+        <img src="" alt="" />
+        <h2></h2>
+        <h4></h4>
+        <button class="info__btn"></button>
+      </div>
+    </section>
+
+    <div class="loading__movies">
+      <i class="fa-solid fa-spinner movies__loading--spinner"></i>
+    </div>
+
+    <script>
+      function getSearchQuery() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlParams.get("query");
+        if (searchTerm && searchTerm.trim().length > 0) {
+          searchName.value = searchTerm;
+          renderMovies(searchTerm);
+        }
+      }
+
+      getSearchQuery();
+    </script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
